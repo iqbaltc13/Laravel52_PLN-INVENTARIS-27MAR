@@ -18,7 +18,7 @@
        
 
 		<form class="form-horizontal" role="form" method="POST" action="{{ url('/barang/create') }}/{{$id2}}" enctype="multipart/form-data">
-{{ csrf_field() }}s
+{{ csrf_field() }}
 				              <div class="form-group">
   <label class="col-md-4 control-label" >Rayon</label>
   <div class="col-md-6">	

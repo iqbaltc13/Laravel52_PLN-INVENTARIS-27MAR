@@ -18,40 +18,48 @@
 
        
 
-		{!! Form::open( ['files'=>true]) !!}
+		
 
 				<ul>
 					<li style="visibility:hidden">aaa</li>
 				</ul>
 
      		   <div class="form-group">
-     		   	{!! Form::label('gambar', 'Format Upload(dengan Nomor Inventaris)', array('class' => 'col-md-4 control-label'))  !!}
+     		   
+            <label for="upload" class="col-md-4 control-label">Format Upload(dengan Nomor Inventaris)</label>
           			<div class="col-md-8" align=>
           				<a class="btn btn-success" href="{{ asset('public/contoh dengan nomor inventaris.xls') }}">Lihat Format</a>
             		</div>
       			</div>
             <br><br><br><br>
             <div class="form-group">
-          {!! Form::open( ['action' => 'BarangController@uploadexcel','files'=>true]) !!}
-        {!! Form::label('import_file', 'Upload File Excel(Dengan nomor inventaris)', array('class' => 'col-md-4 control-label'))  !!}
+        
+              <form class="form-horizontal" role="form" method="POST" action="{{ url('/barang/uploadexcel') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <label for="import_file" class="col-md-4 control-label">Upload File Excel(dengan Nomor Inventaris)</label>
+     
         <div class="col-md-6">
-             {!! Form::file('import_file',['class' => 'form-control']) !!}
+             
+               <input id="import_file" type="file" class="form-control" name="import_file" value="{{ old('import_file') }}">
 
-          <p class="errors">{!!$errors->first('image')!!}</p>
+          
         
         </div>
            </div>
 
             <div class="form-group"><br/> 
         <div class="col-md-6 col-md-offset-4">
-          {!! Form::submit('Upload File', ['class'=>'btn primary']) !!}
+               <button type="submit" class="btn btn-primary">
+                                     Upload File
+                                </button>
         </div>
-          {!! Form::close() !!}
+          </form>
           </div>
 
            <br><br><br><br><br><br>
             <div class="form-group">
-            {!! Form::label('gambar', 'Format Upload tanpa Nomor Inventaris', array('class' => 'col-md-4 control-label'))  !!}
+           
+             <label for="upload" class="col-md-4 control-label">Format Upload tanpa Nomor Inventaris</label>
                 <div class="col-md-8" align=>
                   <a class="btn btn-success" href="{{ asset('public/contoh tanpa nomor inventaris.xls') }}">Lihat Format</a>
                 </div>
@@ -63,14 +71,15 @@
 
 
         
-
+              <form class="form-horizontal" role="form" method="POST" action="{{ url('/barang/uploadexcel2') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
            <div class="form-group">
-        {!! Form::open( ['action' => 'BarangController@uploadexcel2','files'=>true]) !!}
-        {!! Form::label('import_file', 'Upload File Excel(tanpa Nomor Inventaris)', array('class' => 'col-md-4 control-label'))  !!}
+           <label for="import_file" class="col-md-4 control-label">Upload File Excel(tanpa Nomor Inventaris)</label>
+     
+        
         <div class="col-md-6">
-             {!! Form::file('import_file',['class' => 'form-control']) !!}
-
-          <p class="errors">{!!$errors->first('image')!!}</p>
+            <input id="import_file" type="file" class="form-control" name="import_file" value="{{ old('import_file') }}">
+          
         
         </div>
            </div>
@@ -81,9 +90,12 @@
 
      		    <div class="form-group">
 				<div class="col-md-6 col-md-offset-4">
-    			{!! Form::submit('Upload File', ['class'=>'btn primary']) !!}
+    		
+          <button type="submit" class="btn btn-primary">
+                                     Upload File
+                                </button>
 				</div>
-    			{!! Form::close() !!}
+    	</form>
     			</div>
       </div>
     </div>
